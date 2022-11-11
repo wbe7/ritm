@@ -2,10 +2,17 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ritm-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/proxy-body-size: "10000m"
 spec:
-  ingressClassName: nginx-example
+  tls:
+    - hosts:
+        - ritm.cloudnative.space
+      secretName: ritm.cloudnative.space-tls
   rules:
-    - host: "app.cloudnative.space"
+    - host: ritm.cloudnative.space
       http:
         paths:
           - path: /
