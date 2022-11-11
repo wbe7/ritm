@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ritm-ingress
+spec:
+  ingressClassName: nginx-example
+  rules:
+    - host: "app.cloudnative.space"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ritm-svc
+                port:
+                  number: 80
