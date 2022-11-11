@@ -2,4 +2,5 @@
 .idea
 .git
 .dockerignore
+__pycache__
 README.md
