@@ -3,4 +3,6 @@
 .git
 .dockerignore
 __pycache__
+deploy
+old
 README.md
